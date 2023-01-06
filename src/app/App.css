@@ -1,0 +1,12 @@
+.app {
+    min-height: 100%;
+}
+
+.app__content {
+    min-height: 82vh;
+}
+
+.app__footer {
+    text-align: center;
+    font-size: 14px;
+}

@@ -1,13 +1,19 @@
-import React from 'react';
 import './App.css';
 import Header from '../components/Header/Header';
 import EmptyPost from '../components/EmptyPost/EmptyPost';
 
-function App() {
+const App = () => {
   return (
-    <main>
+    <main className="app">
       <Header/>
-      <EmptyPost/>
+
+      <section className="app__content">
+        <EmptyPost/>
+      </section>
+
+      <footer className="app__footer">
+            <p>© 2023 Hakeem Clarke</p>
+      </footer>
     </main>
   );
 }
