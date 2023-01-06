@@ -1,0 +1,28 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__logo_container {
+    width: 10%;
+    display: flex;
+    gap: 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 2rem;
+}
+
+.header__logo {
+    width: 4rem;
+    height: 4rem;
+}
+
+.header__title {
+    font-size: 2rem;
+    color: white;
+}
+
+.header__nav {
+    padding: 1rem 2rem 0rem 0rem;
+}
