@@ -1,0 +1,18 @@
+.empty-post {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+}
+
+.empty-post__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.empty-post__title {
+    font-size: 4rem;
+}

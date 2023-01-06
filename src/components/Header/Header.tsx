@@ -16,6 +16,7 @@ const Header:FC= () => {
                 <Button
                     text={"Post"}
                     type={"button"}
+                    shape="square"
                 />
             </nav>
             
