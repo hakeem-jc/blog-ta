@@ -2,8 +2,17 @@ import { FC } from "react";
 import './Header.css';
 import logo from "../../images/logo.png";
 import Button from "../Button/Button";
+import { useAppDispatch } from "../../common/hooks";
+import { setIsOpen } from "../../features/modal/modalSlice";
+
 
 const Header:FC= () => {
+    const dispatch = useAppDispatch();
+
+    const openModal = () => {
+        dispatch(setIsOpen(true));
+    }
+
     return (
         <header className="header">
             <div className="header__logo_container">
@@ -16,6 +25,7 @@ const Header:FC= () => {
                     text={"Post"}
                     type={"button"}
                     shape="square"
+                    onClick={()=>openModal()}
                 />
             </nav>
         </header>

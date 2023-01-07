@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC  } from "react";
 import './App.css';
 import Header from '../components/Header/Header';
 import EmptyPost from '../components/EmptyPost/EmptyPost';
@@ -9,13 +9,9 @@ const App:FC = () => {
 
   const temp_post = ['temp'];
 
-  // TODO - Switch to redux
-  const [openModal, setOpenModal] = useState(false);
-
-
   return (
     <main className="app">
-      <Modal isOpen={openModal} close={()=>setOpenModal(false)}>
+      <Modal>
         <div></div>
       </Modal>
 
