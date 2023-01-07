@@ -9,6 +9,7 @@
     justify-content: space-between;
     align-items: center;
     box-shadow: inset 0 0 0 28rem rgba(0, 0, 0, 0.3);
+    margin-bottom: 5rem;
 }
 
 .post_carousel_button {

@@ -4,7 +4,17 @@
     align-items: center;
     padding-top: 4rem;
     flex-direction: column;
-    gap: 5rem;
+}
+
+.post-container__header {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.post-container__title {
+    font-size: 1.8rem;
 }
 
 .post-container__list {
