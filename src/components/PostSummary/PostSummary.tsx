@@ -24,7 +24,7 @@ const PostSummary:FC = () => {
 
             <div className="post-summary__footer">
                 <Button
-                    text={"Update"}
+                    text={"View"}
                     type={"button"}
                     shape="square"
                 />
