@@ -2,15 +2,10 @@ import { FC } from "react";
 import { Formik, Field, Form, FormikHelpers } from "formik";
 import "./PostForm.css";
 import Button from "../Button/Button";
-import axios from "axios";
-import { API_URL } from "../../common/constants";
-import { FormValues } from "../../interfaces/form_values";
 import { useAppSelector } from "../../common/hooks";
-// import { FormType } from "../../interfaces/form_values";
 
 const PostForm: FC = () => {
   const current_post = useAppSelector(state => state.current_post);
-  const form_type = useAppSelector(state => state.form_type);
 
   const onSubmit = (values: any, helpers: FormikHelpers<any>) => {
     console.log(helpers);
