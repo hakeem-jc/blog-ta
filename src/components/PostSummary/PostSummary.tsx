@@ -3,8 +3,17 @@ import './PostSummary.css';
 import temp from '../../images/temp.jpg';
 import fallback from '../../images/fallback.png';
 import Button from "../Button/Button";
+import { useAppDispatch } from "../../common/hooks";
+import { setIsOpen,setModalType } from "../../features/modal/modalSlice";
 
 const PostSummary:FC = () => {
+    const dispatch = useAppDispatch();
+
+    const openModal = () => {
+        dispatch(setIsOpen(true));
+        dispatch(setModalType('view_post'));
+    }
+
     let setDefaultImage = (ev: any) => {
         ev.target.src = fallback;
     };
@@ -27,6 +36,7 @@ const PostSummary:FC = () => {
                     text={"View"}
                     type={"button"}
                     shape="square"
+                    onClick={()=>openModal()}
                 />
 
                 <p className="post-summary__date">Posted: 7/1/2023</p>

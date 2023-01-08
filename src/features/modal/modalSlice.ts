@@ -11,8 +11,20 @@ const setIsOpenSlice = createSlice({
     }
 });
 
+const setModalTypeSlice = createSlice({
+    name: 'modal_type',
+    initialState: '',
+    reducers: {
+        setModalType(_state,action:PayloadAction<string>){
+            return action.payload;
+        }
+    }
+});
+
 // TODO - Add error modal
 
 export const { setIsOpen } = setIsOpenSlice.actions;
+export const { setModalType } = setModalTypeSlice.actions;
 
 export const is_open = setIsOpenSlice.reducer;
+export const modal_type = setModalTypeSlice.reducer;

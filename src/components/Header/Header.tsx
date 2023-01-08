@@ -3,14 +3,14 @@ import './Header.css';
 import logo from "../../images/logo.png";
 import Button from "../Button/Button";
 import { useAppDispatch } from "../../common/hooks";
-import { setIsOpen } from "../../features/modal/modalSlice";
-
+import { setIsOpen,setModalType } from "../../features/modal/modalSlice";
 
 const Header:FC= () => {
     const dispatch = useAppDispatch();
 
     const openModal = () => {
         dispatch(setIsOpen(true));
+        dispatch(setModalType('new_post'));
     }
 
     return (

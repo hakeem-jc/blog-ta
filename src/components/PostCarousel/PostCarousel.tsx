@@ -5,8 +5,17 @@ import fallback from '../../images/fallback.png';
 import chevron_left from '../../images/chevron_left.png';
 import chevron_right from '../../images/chevron_right.png';
 import Button from "../Button/Button";
+import { useAppDispatch } from "../../common/hooks";
+import { setIsOpen,setModalType } from "../../features/modal/modalSlice";
 
 const PostCarousel:FC = () => {
+    const dispatch = useAppDispatch();
+
+    const openModal = () => {
+        dispatch(setIsOpen(true));
+        dispatch(setModalType('view_post'));
+    }
+
     return (
         <div 
             style={{
@@ -27,6 +36,7 @@ const PostCarousel:FC = () => {
                     text={"See More"}
                     type={"button"}
                     shape="square"
+                    onClick={()=>openModal()}
                 />
                 
             </div>
