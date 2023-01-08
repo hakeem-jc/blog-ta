@@ -1,5 +1,6 @@
 @import-normalize;
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+@import url('./common/variables.css');
 
 html, body {
   height: 100%;
@@ -17,10 +18,10 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background-color: #292929;
+  background-color: var(--main-color);
 }
 
-h1, h2, h3, p {
+h1, h2, h3, p, label {
   color: white;
 }
 

@@ -33,9 +33,9 @@
 
   .modal__close-btn {
     color: #aaa;
-
     font-size: 28px;
     font-weight: bold;
+    margin-right: 1.5rem;
   }
   
   .modal__close-btn:hover,

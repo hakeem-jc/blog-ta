@@ -4,7 +4,7 @@ import Header from '../components/Header/Header';
 import EmptyPost from '../components/EmptyPost/EmptyPost';
 import PostContainer from '../components/PostContainer/PostContainer';
 import Modal from '../components/Modal/Modal';
-import Post from "../components/Post/Post";
+import PostForm from "../components/PostForm/PostForm";
 
 const App:FC = () => {
 
@@ -13,7 +13,7 @@ const App:FC = () => {
   return (
     <main className="app">
       <Modal>
-        <Post/>
+        <PostForm/>
       </Modal>
 
       <Header/>

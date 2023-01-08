@@ -22,7 +22,7 @@ const Button:FC<ButtonProps> = (props) => {
                 class_names = class_names.concat(' button--red');
             }
         }
-        console.log(class_names)
+       
         return class_names;
     }
 
