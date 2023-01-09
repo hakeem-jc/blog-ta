@@ -4,10 +4,13 @@ import fallback from '../../images/fallback.png';
 import map from '../../images/map.png';
 import Button from "../Button/Button";
 import { format_date } from "../../common/helpers";
-import { useAppSelector } from "../../common/hooks";
+import { useAppDispatch,useAppSelector } from "../../common/hooks";
+import { setModalType } from "../../features/modal/modalSlice";
+import { setRefreshPosts } from "../../features/post/postSlice";
 
 const Post:FC = () => {
-     const current_post = useAppSelector(state => state.current_post);
+    const dispatch = useAppDispatch();
+    const { current_post, refresh_posts } = useAppSelector(state => state);
 
     let setDefaultImage = (ev: any) => {
         ev.target.src = fallback;
@@ -15,6 +18,11 @@ const Post:FC = () => {
 
     let created_at = format_date(current_post.created_at);
     let updated_at = format_date(current_post.updated_at);
+
+    const openUpdateModal = () => {
+        dispatch(setModalType('new_post'));
+        dispatch(setRefreshPosts(refresh_posts + 1));
+    }
 
     return (
         <div className="post">
@@ -42,6 +50,7 @@ const Post:FC = () => {
                     text={"Update"}
                     type={"button"}
                     shape="square"
+                    onClick={()=>openUpdateModal()}
                 />
 
                 <Button
