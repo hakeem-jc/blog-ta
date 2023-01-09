@@ -1,13 +1,16 @@
 import { FC } from "react";
 import './PostSummary.css';
-import temp from '../../images/temp.jpg';
 import fallback from '../../images/fallback.png';
 import Button from "../Button/Button";
 import { useAppDispatch } from "../../common/hooks";
 import { setIsOpen,setModalType } from "../../features/modal/modalSlice";
+import { PostProps } from "../../interfaces/post";
+import { format_date } from "../../common/helpers";
 
-const PostSummary:FC = () => {
+const PostSummary:FC<PostProps> = (props) => {
     const dispatch = useAppDispatch();
+
+    let created_at = format_date(props.created_at);
 
     const openModal = () => {
         dispatch(setIsOpen(true));
@@ -19,17 +22,15 @@ const PostSummary:FC = () => {
     };
 
     return (
-        <div className="post-summary">
+        <div className="post-summary" data-testid={`post-${props.id}`}>
             <img
-                src={temp}
+                src={props.image_url}
                 className="post-summary__image"
                 onError={setDefaultImage}
                 alt="Brief view of a post"
             /> 
-            <h3 className="post-summary__title">Berlin</h3>
-            <p className="post-summary__text">Lorem ipsum dolor sit amet, consectetur adipiscing 
-            elit, sed do eiusmod tempor incididunt ut labore et 
-            dolore magna aliqu ....</p>
+            <h3 className="post-summary__title">{props.title}</h3>
+            <p className="post-summary__text">{props.content}</p>
 
             <div className="post-summary__footer">
                 <Button
@@ -39,7 +40,7 @@ const PostSummary:FC = () => {
                     onClick={()=>openModal()}
                 />
 
-                <p className="post-summary__date">Posted: 7/1/2023</p>
+                <p className="post-summary__date">Posted: {created_at}</p>
             </div>
 
         </div>
