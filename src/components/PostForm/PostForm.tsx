@@ -6,6 +6,7 @@ import { useAppSelector,useAppDispatch } from "../../common/hooks";
 import { FormType } from "../../interfaces/form_values";
 import { setRefreshPosts } from "../../features/post/postSlice";
 import { create } from "../../api/create";
+import { update } from "../../api/update";
 import { setIsOpen } from "../../features/modal/modalSlice";
 import * as yup from 'yup';
 const isUrl = require("is-valid-http-url");
@@ -20,7 +21,9 @@ const PostForm: FC = () => {
       dispatch(setRefreshPosts(refresh_posts + 1));
       dispatch(setIsOpen(false));
     } else {
-      // Update
+      update(values, helpers,current_post);
+      dispatch(setRefreshPosts(refresh_posts + 1));
+      dispatch(setIsOpen(false));
     }
   };
 
@@ -29,7 +32,7 @@ const PostForm: FC = () => {
       .max(50, 'Titles can\'t be longer than 50 characters')
       .required('Required'),
    content: yup.string()
-      .max(50, 'Content can\'t be longer than 50 characters')
+      .max(100, 'Content can\'t be longer than 100 characters')
       .required('Required'),
     lat: yup.number()
       .max(50, 'Latitude coordinates can\'t be longer than 50 characters')
@@ -93,6 +96,7 @@ const PostForm: FC = () => {
                   text={form_type === FormType.NEW ? "Create":"Update"}
                   type={"submit"}
                   shape="square"
+
                   dataTestid='post_form_button'
               />
             </div>
