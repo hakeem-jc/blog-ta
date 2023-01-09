@@ -1,6 +1,5 @@
 @import url("../../common/variables.css");
 
-
 .post-form {
     width: 80vw;
     padding-bottom: 2rem;
@@ -60,4 +59,8 @@
 .post-form__text-container {
   display: flex;
   flex-direction: column-reverse;
+}
+
+.post-form__error_text {
+  color: var(--error-color);
 }

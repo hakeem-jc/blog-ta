@@ -5,6 +5,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
     text: string;
     shape: string;
     color?: string;
+    dataTestid?: string;
     onClick?: () => void;
 }
 
@@ -28,7 +29,9 @@ const Button:FC<ButtonProps> = (props) => {
 
     return (<button 
                 className={setClass(props)}
-                type={props.type} onClick={props.onClick}>{props.text}</button>
+                type={props.type} 
+                onClick={props.onClick}
+                data-testid={props.dataTestid}>{props.text}</button>
     );
 }
 

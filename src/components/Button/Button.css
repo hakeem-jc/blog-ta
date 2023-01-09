@@ -97,5 +97,5 @@
 }
 
 .button--red {
-  background-color: #ef2035;
+  background-color: var(--error-color);
 }
