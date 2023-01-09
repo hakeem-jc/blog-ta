@@ -64,3 +64,9 @@
 .post-form__error_text {
   color: var(--error-color);
 }
+
+@media only screen and (min-width: 1280px) {
+  .post-form {
+    width: 30vw;
+  }
+}

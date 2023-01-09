@@ -25,3 +25,13 @@
 .header__nav {
     padding: 1rem 2rem 0rem 0rem;
 }
+
+@media only screen and (min-width: 1280px) {
+    .header {
+        padding-top: 1rem;
+    }
+
+    .header__logo_container {
+        width: 7%;
+    }
+}
