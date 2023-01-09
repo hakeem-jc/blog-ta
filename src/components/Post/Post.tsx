@@ -5,8 +5,9 @@ import map from '../../images/map.png';
 import Button from "../Button/Button";
 import { format_date } from "../../common/helpers";
 import { useAppDispatch,useAppSelector } from "../../common/hooks";
-import { setModalType } from "../../features/modal/modalSlice";
+import { setModalType, setIsOpen } from "../../features/modal/modalSlice";
 import { setRefreshPosts } from "../../features/post/postSlice";
+import { remove } from "../../api/remove";
 
 const Post:FC = () => {
     const dispatch = useAppDispatch();
@@ -23,6 +24,13 @@ const Post:FC = () => {
         dispatch(setModalType('new_post'));
         dispatch(setRefreshPosts(refresh_posts + 1));
     }
+
+    let removeAndRefresh = (id: number) => {
+        remove(id).then((_response) => {
+          dispatch(setRefreshPosts(refresh_posts + 1));
+          dispatch(setIsOpen(false));
+        });
+    };
 
     return (
         <div className="post">
@@ -58,6 +66,7 @@ const Post:FC = () => {
                     type={"button"}
                     color="red"
                     shape="square"
+                    onClick={() => removeAndRefresh(current_post.id)}
                 />
             </div>
 
