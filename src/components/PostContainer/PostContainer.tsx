@@ -3,8 +3,20 @@ import './PostContainer.css';
 import PostCarousel from "../PostCarousel/PostCarousel";
 import PostSummary from "../PostSummary/PostSummary";
 import Button from "../Button/Button";
+import { useAppSelector } from "../../common/hooks";
+import { PostProps } from "../../interfaces/post";
 
 const PostContainer:FC = () => {
+    const { posts } = useAppSelector((state) => state);
+
+    const Posts = (posts !== null && posts !== undefined && posts.length !== 0) ? (
+      posts.map((post:PostProps, index: number) => {
+        return <PostSummary {...post} key={index} />;
+      })
+    ) : (
+      <h1>No Posts, Add Some to Get Started</h1>
+    );
+    
     return (
         <section className="post-container">
            <PostCarousel/>
@@ -20,10 +32,7 @@ const PostContainer:FC = () => {
             </div>
 
            <div className="post-container__list">
-              
-
-                <PostSummary />
-                <PostSummary />
+               {Posts}
            </div>
         </section>
     );
