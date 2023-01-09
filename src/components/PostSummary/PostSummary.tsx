@@ -6,15 +6,22 @@ import { useAppDispatch } from "../../common/hooks";
 import { setIsOpen,setModalType } from "../../features/modal/modalSlice";
 import { PostProps } from "../../interfaces/post";
 import { format_date } from "../../common/helpers";
+import { show } from "../../api/show";
+import { FormType } from "../../interfaces/form_values";
+import { setFormType } from "../../features/form/formSlice";
+import { setPost } from "../../features/post/postSlice";
 
 const PostSummary:FC<PostProps> = (props) => {
     const dispatch = useAppDispatch();
 
     let created_at = format_date(props.created_at);
 
-    const openModal = () => {
-        dispatch(setIsOpen(true));
+    const view = async (id: number) => {
+        let post = await show(id);
+        dispatch(setFormType(FormType.UPDATE));
         dispatch(setModalType('view_post'));
+        dispatch(setPost(post));
+        dispatch(setIsOpen(true));
     }
 
     let setDefaultImage = (ev: any) => {
@@ -37,7 +44,7 @@ const PostSummary:FC<PostProps> = (props) => {
                     text={"View"}
                     type={"button"}
                     shape="square"
-                    onClick={()=>openModal()}
+                    onClick={()=>view(props.id)}
                 />
 
                 <p className="post-summary__date">Posted: {created_at}</p>

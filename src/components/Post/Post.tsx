@@ -1,27 +1,31 @@
 import { FC } from "react";
 import './Post.css';
-import temp from '../../images/temp.jpg';
 import fallback from '../../images/fallback.png';
 import map from '../../images/map.png';
 import Button from "../Button/Button";
+import { format_date } from "../../common/helpers";
+import { useAppSelector } from "../../common/hooks";
 
 const Post:FC = () => {
+     const current_post = useAppSelector(state => state.current_post);
+
     let setDefaultImage = (ev: any) => {
         ev.target.src = fallback;
     };
 
+    let created_at = format_date(current_post.created_at);
+    let updated_at = format_date(current_post.updated_at);
+
     return (
         <div className="post">
             <img
-                src={temp}
+                src={current_post.image_url}
                 className="post__image"
                 onError={setDefaultImage}
                 alt="Brief view of a post"
             /> 
-            <h3 className="post__title">Berlin</h3>
-            <p className="post__text">Lorem ipsum dolor sit amet, consectetur adipiscing 
-            elit, sed do eiusmod tempor incididunt ut labore et 
-            dolore magna aliqu ....</p>
+            <h3 className="post__title">{current_post.title}</h3>
+            <p className="post__text">{current_post.content}</p>
 
             <h3 className="post__title">Location</h3>
 
@@ -50,8 +54,8 @@ const Post:FC = () => {
 
 
             <div className="post__footer">
-                <p className="post__date">Posted: 7/1/2023</p>
-                <p className="post__date">Updated: 7/1/2023</p>
+                <p className="post__date">Posted: {created_at}</p>
+                <p className="post__date">Updated: {updated_at}</p>
             </div>
 
         </div>
