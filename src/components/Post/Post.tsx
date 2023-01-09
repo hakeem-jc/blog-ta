@@ -5,8 +5,7 @@ import map from '../../images/map.png';
 import Button from "../Button/Button";
 import { format_date } from "../../common/helpers";
 import { useAppDispatch,useAppSelector } from "../../common/hooks";
-import { setFormType } from "../../features/form/formSlice";
-import { setIsOpen, setModalType } from "../../features/modal/modalSlice";
+import { setModalType } from "../../features/modal/modalSlice";
 import { setRefreshPosts } from "../../features/post/postSlice";
 
 const Post:FC = () => {
