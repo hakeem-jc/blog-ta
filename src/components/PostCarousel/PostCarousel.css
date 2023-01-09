@@ -29,6 +29,7 @@
 
 .post_carousel_image {
     width: 1rem;
+    cursor: pointer;
 }
 
 .post_carousel__text {
@@ -37,4 +38,16 @@
     max-height: 5rem;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+@media only screen and (min-width: 1280px) {
+    .post_carousel {
+        width: 80%;
+        height: 35rem;
+        justify-content: space-around;
+    }
+
+    .post_carousel_image {
+        width: 2rem;
+    }    
 }
