@@ -1,13 +1,13 @@
 import { FC } from "react";
 import './Post.css';
 import fallback from '../../images/fallback.png';
-import map from '../../images/map.png';
 import Button from "../Button/Button";
 import { format_date } from "../../common/helpers";
 import { useAppDispatch,useAppSelector } from "../../common/hooks";
 import { setModalType, setIsOpen } from "../../features/modal/modalSlice";
 import { setRefreshPosts } from "../../features/post/postSlice";
 import { remove } from "../../api/remove";
+import Map from "../Map/Map";
 
 const Post:FC = () => {
     const dispatch = useAppDispatch();
@@ -45,13 +45,7 @@ const Post:FC = () => {
 
             <h3 className="post__title">Location</h3>
 
-            {/* TODO - Put Map here */}
-            <img
-                src={map}
-                className="post__image post_map"
-                onError={setDefaultImage}
-                alt="Brief view of a post"
-            /> 
+           <Map lat={+current_post.lat} long={+current_post.long} />
 
             <div className="post__footer">
                 <Button
