@@ -22,13 +22,19 @@
     display: flex;
     align-items: center;
     gap: 5rem;
-    flex-direction: column;
     margin-bottom: 5rem;
+}
+
+.post-container__list_asc {
+    flex-direction: column;
+}
+
+.post-container__list_desc {
+    flex-direction: column-reverse;
 }
 
 @media only screen and (min-width: 1280px) {
     .post-container__list {
         width: 80%;
-    }
-    
+    }  
 }

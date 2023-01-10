@@ -32,7 +32,7 @@ const PostForm: FC = () => {
       .max(50, 'Titles can\'t be longer than 50 characters')
       .required('Required'),
    content: yup.string()
-      .max(100, 'Content can\'t be longer than 100 characters')
+      .max(300, 'Content can\'t be longer than 300 characters')
       .required('Required'),
     lat: yup.number()
       .max(50, 'Latitude coordinates can\'t be longer than 50 characters')
