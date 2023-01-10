@@ -50,4 +50,8 @@
     .post_carousel_image {
         width: 2rem;
     }    
+
+    .post_carousel__content {
+        width: 80%;
+    }
 }
