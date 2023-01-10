@@ -16,7 +16,7 @@ Take Home Assignment
 React Application built with Redux, Typescript, Formik and the Google Maps API. I implemented a carousel and grid view for viewing applications and a responsive design to view the application on mobile and desktop. I also used the Google Maps API to use inputted coordinates to generate an interactive map of the chosen location. The application uses  Yup validation to screen for valid input including http/https url's for the input url field and also includes a sort button to view posts in ascending or descending chronological order. 
 On the dev ops side, I also added a github actions script to run unit tests on every pull request to block breaking changes.
 
-<a  href="https://github.com/hakeem-jc/blog-ta">View Demo</a>
+<a  href="https://blog-ta-hakeem-jc.vercel.app/">View Demo</a>
 
 </p>
 
