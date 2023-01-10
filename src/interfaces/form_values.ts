@@ -13,8 +13,3 @@ export enum FormType {
     NEW = 'NEW',
     UPDATE = 'UPDATE'
 }
-
-export enum SortOptions {
-    ASC = 'ASC',
-    DESC ='DESC'
-}
